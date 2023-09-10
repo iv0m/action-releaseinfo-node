@@ -36,4 +36,4 @@ WORKDIR /usr/src/app
 COPY --chown=node:node . /usr/src/app
 
 # run entrypoint script
-CMD ["dumb-init", "node", "index.js"]
+CMD ["dumb-init", "node", "/usr/src/app/index.js"]
