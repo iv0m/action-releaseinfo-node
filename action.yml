@@ -1,0 +1,5 @@
+name: Changelog Release
+description: Generate a changelog release file summarising the latest pull requests content
+runs:
+    using: docker
+    image: Dockerfile
