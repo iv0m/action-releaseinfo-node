@@ -1,4 +1,6 @@
-# get current LTS docker image
+# -------------------------
+# ------ Build Image ------
+# -------------------------
 FROM node:lts-bookworm-slim AS build
 
 # update packages and install `dumb-init` package
@@ -14,7 +16,9 @@ COPY package*.json /usr/src/app/
 # install production dependencies
 RUN npm ci --only=production
 
+# ---------------------------
 # ------ Release Image ------
+# ---------------------------
 FROM node:lts-bookworm-slim AS release
 
 # copy `dumb-init` executable
@@ -30,7 +34,7 @@ USER node
 WORKDIR /usr/src/app
 
 # copy `node_modules` to working directory and assign `node` as file owner
-#COPY --from=build --chown=node:node /usr/src/app/node_modules /usr/src/app/node_modules
+COPY --from=build --chown=node:node /usr/src/app/node_modules /usr/src/app/node_modules
 
 # copy application files and assign `node` as file owner
 COPY --chown=node:node . /usr/src/app
