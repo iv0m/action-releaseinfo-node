@@ -20,6 +20,8 @@ async function main() {
             }
         }`;
 
+        console.log(query);
+
         const results = await octokit.graphql(query);
         console.log(results);
         console.log(results.repository.releases.nodes.createdAt);
