@@ -1,5 +1,15 @@
 name: Changelog Release
 description: Generate a changelog release file summarising the latest pull requests content
+inputs:
+    my_token:
+        description: 'The GitHub token used to perform actions'
+        required: true
+    repository:
+        description: 'The name of the repository to target in this action'
+        required: true
+    owner:
+        description: 'The name of the repository owner to target in this action'
+        required: true
 outputs:
     time:
         description: 'The time this action completes'
