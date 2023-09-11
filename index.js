@@ -3,7 +3,7 @@ import github from '@actions/github';
 
 async function main() {
     try {
-        const myToken = core.getInput('myToken');
+        const myToken = core.getInput('my_token');
         const targetRepo = core.getInput('repository');
         const targetOwner = core.getInput('owner');
         const octokit = github.getOctokit(myToken);
